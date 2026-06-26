@@ -92,7 +92,8 @@ public class Main {
 
                     System.out.print("Deposit: ");
 
-                    double dep = input.nextDouble();
+                    int dep = input.nextInt();
+
 
                     TransactionService.deposit(account, dep);
 
@@ -104,8 +105,7 @@ public class Main {
 
                     System.out.print("Withdraw: ");
 
-                    double wd = input.nextDouble();
-
+                    int wd = input.nextInt();
                     TransactionService.withdraw(account, wd);
 
                     break;
