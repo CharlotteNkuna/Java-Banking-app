@@ -7,45 +7,45 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
 
-        // ================= REGISTER =================
 
         System.out.println("===== REGISTER =====");
 
         User user = Register.createUser(input);
 
 
-
-        // ================= LOGIN =================
-
         System.out.println("\n===== LOGIN =====");
 
+        while (true) {
 
-        System.out.print("Enter Username: ");
-        String username = input.nextLine();
+            System.out.print("Enter Username: ");
+            String username = input.nextLine();
 
+            System.out.print("Enter PIN: ");
 
-        System.out.print("Enter PIN: ");
-        int pin = input.nextInt();
+            while (!input.hasNextInt()) {
+                System.out.println("PIN must be numbers only.");
+                input.next();
+                System.out.print("Enter PIN: ");
+            }
 
+            int pin = input.nextInt();
+            input.nextLine();
 
+            if (username.equals(user.getUsername())
+                    && pin == user.getPin()) {
 
-        if (username.equals(user.getUsername())
-                && pin == user.getPin()) {
+                System.out.println("Login Successful!");
+                System.out.println("Welcome " + user.getUsername());
+                break;
 
+            } else {
 
-            System.out.println("Login Successful!");
-            System.out.println("Welcome " + user.getUsername());
-
-
-        } else {
-
-            System.out.println("Invalid username or PIN");
-            input.close();
-            return;
+                System.out.println("Invalid username or PIN. Please try again.\n");
+            }
         }
 
 
-        Menu.display();   // shows account type
+        Menu.display();
 
         int accountType = input.nextInt();
 
@@ -62,7 +62,6 @@ public class Main {
             System.out.println("Current Account Selected");
         }
 
-        // ================= ATM =================
 
         Account account = new Account();
 
@@ -71,7 +70,7 @@ public class Main {
 
         do {
 
-            Menu.atmMenu();   // shows ATM menu
+            Menu.atmMenu();
 
 
             choice = input.nextInt();
