@@ -6,8 +6,6 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-
-
         System.out.println("===== REGISTER =====");
 
         User user = Register.createUser(input);
@@ -67,16 +65,13 @@ public class Main {
 
         int choice;
 
-
         do {
 
             Menu.atmMenu();
 
-
             choice = input.nextInt();
 
             switch (choice) {
-
 
                 case 1:
 
@@ -85,19 +80,15 @@ public class Main {
 
                     break;
 
-
-
                 case 2:
 
                     System.out.print("Deposit: ");
 
                     int dep = input.nextInt();
 
-
                     TransactionService.deposit(account, dep);
 
                     break;
-
 
 
                 case 3:
@@ -110,7 +101,6 @@ public class Main {
                     break;
 
 
-
                 case 4:
 
                     System.out.println("Thank you for using Sharp ATM");
@@ -118,21 +108,10 @@ public class Main {
                     break;
 
 
-
                 default:
-
                     System.out.println("Invalid option");
-
             }
-
-
-
         } while (choice != 4);
-
-
-
         input.close();
-
     }
-
 }

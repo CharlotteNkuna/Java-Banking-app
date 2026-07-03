@@ -2,7 +2,6 @@ public class TransactionService {
 
     public static void deposit(Account account, int amount) {
 
-        // invalid input
         if (amount < 10 || amount % 10 != 0) {
             System.out.println("Invalid amount ATM notes only!");
             return;
@@ -16,19 +15,16 @@ public class TransactionService {
 
     public static void withdraw(Account account, int amount) {
 
-        // invalid input (not ATM notes)
         if (amount < 10 || amount % 10 != 0) {
             System.out.println("Invalid amount");
             return;
         }
 
-        // insufficient balance check
         if (amount > account.getBalance()) {
             System.out.println("Insufficient funds");
             return;
         }
 
-        // successful withdrawal
         account.withdraw(amount);
 
         System.out.println("Withdrawal successful");
